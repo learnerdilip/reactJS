@@ -1,4 +1,19 @@
-.App {
+body {
+  background-color: goldenrod;
+}
+.Application {
   font-family: sans-serif;
   text-align: center;
+}
+.newsarticle {
+  height: 200px;
+  margin: 2px;
+}
+.newsImage {
+  width: 200px;
+  height: 200px;
+}
+.newsDetail {
+  width: 80%;
+  border: black inset 2px;
 }

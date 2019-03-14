@@ -1,36 +1,42 @@
 import React from "react";
+import "./styles.css";
 import NewsItem from "./NewsItem";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      newsList: []
+      newsHead: [],
+      isLoading: true
     };
     this.clickHandle = this.clickHandle.bind(this);
   }
+
   clickHandle() {
-    fetch(
-      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=e85e242bc6874dcb95cf8bbcddd68f27"
-    )
+    let search = document.getElementById("itemsearch").value;
+    let urlBase = "https://newsapi.org/v2/";
+    let newsType = "everything?q=" + search;
+    let apiKey = "&apiKey=e85e242bc6874dcb95cf8bbcddd68f27";
+    fetch(urlBase + newsType + apiKey)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          newsList: data.articles
+          newsHead: data.articles
         });
       });
   }
 
   render() {
-    const newsitems = this.state.newsList.map(item => {
-      return <NewsItem a={item} />;
-      //<NewsItem key={item.createdAt} item={item} />;
+    let newsList = this.state.newsHead.map(item => {
+      return <NewsItem details={item} />;
     });
     return (
-      <div>
-        <h1>The Headlines:</h1>
-        <button onClick={this.clickHandle}> Get Data </button>
-        {newsitems}
+      <div className="Application">
+        <h1>Hello Visitor</h1>
+        <input type="text" placeholder="Enter search term" id="itemsearch" />
+        <h2>We provide top news on anything!!</h2>
+        <button onClick={this.clickHandle}>click for latest News</button>
+        {newsList}
       </div>
     );
   }
