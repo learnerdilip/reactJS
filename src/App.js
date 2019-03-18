@@ -10,9 +10,10 @@ class App extends React.Component {
       isLoading: true
     };
     this.clickHandle = this.clickHandle.bind(this);
+    // this.clickB = this.clickB.bind(this);
   }
 
-  clickHandle() {
+  clickHandle(event) {
     let search = document.getElementById("itemsearch").value;
     let urlBase = "https://newsapi.org/v2/";
     let newsType = "everything?q=" + search;
@@ -26,6 +27,12 @@ class App extends React.Component {
       });
   }
 
+  enterPress(event) {
+    if (event.charCode === 13) {
+      document.getElementById("x").click();
+    }
+  }
+
   render() {
     let newsList = this.state.newsHead.map(item => {
       return <NewsItem details={item} />;
@@ -33,9 +40,16 @@ class App extends React.Component {
     return (
       <div className="Application">
         <h1>Hello Visitor</h1>
-        <input type="text" placeholder="Enter search term" id="itemsearch" />
+        <input
+          type="text"
+          onKeyPress={this.enterPress}
+          id="itemsearch"
+          placeholder="Enter search term"
+        />
         <h2>We provide top news on anything!!</h2>
-        <button onClick={this.clickHandle}>click for latest News</button>
+        <button id="x" onClick={this.clickHandle}>
+          click for latest News
+        </button>
         {newsList}
       </div>
     );

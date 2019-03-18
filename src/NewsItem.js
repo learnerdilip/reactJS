@@ -13,6 +13,9 @@ function NewsItem(props) {
             <p>{props.details.title}</p>
             <hr />
             <p> {props.details.content} </p>
+            <a href={props.details.url}>
+              <button>read more</button>
+            </a>
           </td>
         </tr>
       </table>

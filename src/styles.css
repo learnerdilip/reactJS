@@ -17,3 +17,16 @@ body {
   width: 80%;
   border: black inset 2px;
 }
+button {
+  background-color: rgb(23, 181, 202);
+  display: inline-block;
+  height: 50px;
+  border-radius: 30px;
+  color: white;
+  text-emphasis: 5px;
+  border: outset gray 2px;
+}
+input {
+  display: inline;
+  height: 30px;
+}
