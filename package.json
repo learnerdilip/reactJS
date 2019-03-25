@@ -1,13 +1,13 @@
 {
-  "name": "zrlpz1q66x",
+  "name": "one-stop-news-search-react",
   "version": "1.0.0",
-  "description": "react API testing",
+  "description": "react App using API",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.0.3"
   },
   "devDependencies": {},
   "scripts": {
